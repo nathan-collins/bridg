@@ -9,20 +9,21 @@ configure({ adapter: new Adapter() });
 describe('<Vehicle />', () => {
   it('renders the component on shallow', () => {
     shallow(
-      <Vehicle capacity="12" latitude="96.1" longitude="127.0" name="Car name" passengers="12" />
+      <Vehicle capacity={12} latitude={96.1} longitude={127.0} name="Car name" passengers={12} />
     );
   });
 
   it('renders the component on mount', () => {
     mount(
-      <Vehicle capacity="12" latitude="96.1" longitude="127.0" name="Car name" passengers="12" />
+      <Vehicle capacity={12} latitude={96.1} longitude={127.0} name="Car name" passengers={12} />
     );
   });
 
   it('displays the car name', () => {
     const wrapper = shallow(
-      <Vehicle capacity="12" latitude="96.1" longitude="127.0" name="Car name" passengers="12" />
+      <Vehicle capacity={12} latitude={96.1} longitude={127.0} name="Car name" passengers={12} />
     );
+    console.log(wrapper.debug());
 
     expect(wrapper.find('h1').text()).toBe('Car name');
   });
