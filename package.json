@@ -10,7 +10,6 @@
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "hookrouter": "^1.2.3",
-    "jest-google-maps-mock": "^1.0.2",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",

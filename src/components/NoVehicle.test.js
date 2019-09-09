@@ -17,7 +17,6 @@ describe('<NoVehicle />', () => {
 
   it('displays the car name', () => {
     const wrapper = shallow(<NoVehicle />);
-    console.log(wrapper.debug());
 
     expect(wrapper.find('p').text()).toBe('Does not currently have a vehicle');
   });
