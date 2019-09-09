@@ -12,7 +12,14 @@ const Vehicle = compose(
     loadingElement: <div style={{ height: `100%` }} />,
     containerElement: (
       <div
-        style={{ height: `300px`, maxWidth: `300px`, display: `flex`, flexDirection: `column` }}
+        style={{
+          height: `300px`,
+          width: `500px`,
+          display: `flex`,
+          flexDirection: `column`,
+          justifyContent: `center`,
+          border: `1px solid #000000`,
+        }}
       />
     ),
     mapElement: <div style={{ height: `100%` }} />,
@@ -34,14 +41,17 @@ const Vehicle = compose(
   }),
   withScriptjs,
   withGoogleMap
-)(({ capacity, latitude, longitude, name }) => {
+)(({ capacity, latitude, longitude, name, passengers }) => {
   return (
     <div>
+      <h4>Vehicle Details</h4>
       <h1>{name}</h1>
       <GoogleMap defaultZoom={15} defaultCenter={{ lat: latitude, lng: longitude }}>
         <Marker position={{ lat: latitude, lng: longitude }} />
       </GoogleMap>
-      <div>Capacity: {capacity}</div>
+      <div>
+        Capacity: {passengers}/{capacity}
+      </div>
     </div>
   );
 });
@@ -51,6 +61,7 @@ Vehicle.propTypes = {
   latitude: PropTypes.string.isRequired,
   longitude: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
+  passengers: PropTypes.number.isRequired,
 };
 
 export default Vehicle;

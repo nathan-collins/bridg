@@ -4,7 +4,7 @@ import './NoVehicle.css';
 const NoVehicle = () => {
   return (
     <div>
-      <h1>No Vehicle</h1>
+      <p>Does not currently have a vehicle</p>
     </div>
   );
 };
