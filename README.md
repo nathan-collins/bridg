@@ -4,6 +4,18 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
+open a terminal window and type the following commands
+
+### `cd ~`
+
+### `git clone git@github.com:nathan-collins/lotto-selection.git`
+
+### `cd lotto-selection`
+
+### `yarn install`
+
+## Available Scripts
+
 In the project directory, you can run:
 
 ### `npm start`
