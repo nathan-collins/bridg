@@ -1,60 +1,53 @@
 import React from 'react';
 import './Driver.css';
 import PropTypes from 'prop-types';
-import { withScriptjs, withGoogleMap, Marker, GoogleMap } from 'react-google-maps';
+import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api';
 
-import { compose, withProps, withState, withHandlers } from 'recompose';
+const Vehicle = ({ capacity, latitude, longitude, name, passengers }) => {
+  const { isLoaded, loadError } = useLoadScript({
+    googleMapsApiKey: 'AIzaSyAeDg8_7c_sBeWmR5lEblIAhW7oT_oDxxk', // ,
+  });
 
-const Vehicle = compose(
-  withProps({
-    googleMapURL:
-      'https://maps.googleapis.com/maps/api/js?key=AIzaSyAeDg8_7c_sBeWmR5lEblIAhW7oT_oDxxk&v=3.exp&libraries=geometry,drawing,places',
-    loadingElement: <div style={{ height: `100%` }} />,
-    containerElement: (
-      <div
-        style={{
-          height: `300px`,
-          width: `500px`,
-          display: `flex`,
-          flexDirection: `column`,
-          justifyContent: `center`,
-          border: `1px solid #000000`,
+  const onLoad = React.useCallback(function onLoad(mapInstance) {
+    // Map loaded
+  });
+
+  const renderMap = () => {
+    return (
+      <GoogleMap
+        zoom={12}
+        mapContainerStyle={{
+          height: '300px',
+          width: '500px',
         }}
-      />
-    ),
-    mapElement: <div style={{ height: `100%` }} />,
-  }),
-  withState('zoom', 'onZoomChange', 2),
-  withHandlers(() => {
-    const refs = {
-      map: undefined,
-    };
+        center={{ lat: latitude, lng: longitude }}
+        onLoad={onLoad}
+      >
+        <Marker
+          position={{
+            lat: latitude,
+            lng: longitude,
+          }}
+        />
+      </GoogleMap>
+    );
+  };
 
-    return {
-      onMapMounted: () => (ref) => {
-        refs.map = ref;
-      },
-      onZoomChanged: ({ onZoomChange }) => () => {
-        onZoomChange(refs.map.getZoom());
-      },
-    };
-  }),
-  withScriptjs,
-  withGoogleMap
-)(({ capacity, latitude, longitude, name, passengers }) => {
+  if (loadError) {
+    return <div>Map cannot be loaded right now, sorry.</div>;
+  }
+
   return (
     <div>
       <h4>Vehicle Details</h4>
       <h1>{name}</h1>
-      <GoogleMap defaultZoom={15} defaultCenter={{ lat: latitude, lng: longitude }}>
-        <Marker position={{ lat: latitude, lng: longitude }} />
-      </GoogleMap>
+      {isLoaded ? renderMap() : ''}
       <div>
         Capacity: {passengers}/{capacity}
       </div>
     </div>
   );
-});
+};
 
 Vehicle.propTypes = {
   capacity: PropTypes.number.isRequired,
