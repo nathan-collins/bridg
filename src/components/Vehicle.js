@@ -3,7 +3,7 @@ import './Driver.css';
 import PropTypes from 'prop-types';
 import { withScriptjs, withGoogleMap, Marker, GoogleMap } from 'react-google-maps';
 
-const { compose, withProps, withState, withHandlers } = require('recompose');
+import { compose, withProps, withState, withHandlers } from 'recompose';
 
 const Vehicle = compose(
   withProps({
@@ -34,9 +34,11 @@ const Vehicle = compose(
   return (
     <div className="driver">
       <h1>{name}</h1>
-      <GoogleMap defaultZoom={15} defaultCenter={{ lat: latitude, lng: longitude }}>
-        <Marker position={{ lat: latitude, lng: longitude }} />
-      </GoogleMap>
+      <div id="map">
+        <GoogleMap defaultZoom={15} defaultCenter={{ lat: latitude, lng: longitude }}>
+          <Marker position={{ lat: latitude, lng: longitude }} />
+        </GoogleMap>
+      </div>
       <div>{capacity}</div>
     </div>
   );

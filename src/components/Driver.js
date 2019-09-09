@@ -10,11 +10,11 @@ const Driver = ({ firstName, lastName, vehicles }) => {
   /**
    */
   const listVehicles = () => {
-    return vehicles.map((vehicle, index) => {
+    return vehicles.map((vehicle) => {
       return (
         <div>
           <Vehicle
-            key={index}
+            key={vehicle.id}
             capacity={vehicle.capacity}
             latitude={vehicle.latitude}
             longitude={vehicle.longitude}
