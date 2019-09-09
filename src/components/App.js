@@ -36,19 +36,21 @@ function App() {
   }, []);
 
   const listDrivers = () => {
-    if ((!drivers || drivers.length === 0) && (!vehicles || vehicles.length === 0)) return;
+    if ((!drivers || drivers.length === 0) && (!vehicles || vehicles.length === 0)) return '';
 
-    drivers.filter((driver, index) => {
+    const driversAltered = drivers.filter((driver, index) => {
       const vehicleData = vehicles.filter((vehicle) => {
         return vehicle.driver_id === driver.id;
       });
 
       drivers[index].vehicles = vehicleData;
+
+      return drivers;
     });
 
-    return drivers.map((driver, index) => (
+    return driversAltered.map((driver) => (
       <Driver
-        key={index}
+        key={driver.id}
         firstName={driver.first_name}
         lastName={driver.last_name}
         vehicles={driver.vehicles}

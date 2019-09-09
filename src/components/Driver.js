@@ -3,6 +3,7 @@ import './Driver.css';
 import PropTypes from 'prop-types';
 
 import Vehicle from './Vehicle';
+import NoVehicle from './NoVehicle';
 
 const Driver = ({ firstName, lastName, vehicles }) => {
   useEffect(() => {}, []);
@@ -10,11 +11,12 @@ const Driver = ({ firstName, lastName, vehicles }) => {
   /**
    */
   const listVehicles = () => {
-    return vehicles.map((vehicle, index) => {
+    if (!vehicles) return <NoVehicle />;
+    return vehicles.map((vehicle) => {
       return (
         <div>
           <Vehicle
-            key={index}
+            key={vehicle.id}
             capacity={vehicle.capacity}
             latitude={vehicle.latitude}
             longitude={vehicle.longitude}
@@ -38,7 +40,12 @@ const Driver = ({ firstName, lastName, vehicles }) => {
 Driver.propTypes = {
   firstName: PropTypes.string.isRequired,
   lastName: PropTypes.string.isRequired,
-  vehicles: PropTypes.array,
+  vehicles: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequried,
+      value: PropTypes.string,
+    })
+  ),
 };
 
 export default Driver;

@@ -1,4 +1,18 @@
+## Still working on getting more code done
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Available Scripts
+
+open a terminal window and type the following commands
+
+### `cd ~`
+
+### `git clone git@github.com:nathan-collins/lotto-selection.git`
+
+### `cd lotto-selection`
+
+### `yarn install`
 
 ## Available Scripts
 
