@@ -57,9 +57,9 @@ const Vehicle = compose(
 });
 
 Vehicle.propTypes = {
-  capacity: PropTypes.string.isRequired,
-  latitude: PropTypes.string.isRequired,
-  longitude: PropTypes.string.isRequired,
+  capacity: PropTypes.number.isRequired,
+  latitude: PropTypes.number.isRequired,
+  longitude: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   passengers: PropTypes.number.isRequired,
 };
