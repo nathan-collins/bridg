@@ -35,8 +35,11 @@ function App() {
     fetchDriversVehicles();
   }, []);
 
+  /**
+   */
   const listDrivers = () => {
     if ((!drivers || drivers.length === 0) && (!vehicles || vehicles.length === 0)) return '';
+    console.log(drivers);
 
     const driversAltered = drivers.filter((driver, index) => {
       const vehicleData = vehicles.filter((vehicle) => {

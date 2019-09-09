@@ -7,3 +7,11 @@
   display: flex;
   justify-content: center;
 }
+
+h4 {
+  padding: 5px;
+  margin: 0;
+  background: grey;
+  text-transform: uppercase;
+  border-bottom: 1px solid grey;
+}

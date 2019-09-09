@@ -11,7 +11,7 @@ const Driver = ({ firstName, lastName, vehicles }) => {
   /**
    */
   const listVehicles = () => {
-    if (!vehicles || vehicles.length === 0) return <NoVehicle />;
+    if (!vehicles || vehicles.length === 0) return <NoVehicle key="1" />;
     return vehicles.map((vehicle) => {
       return (
         <div id="vehicles">
@@ -38,13 +38,19 @@ const Driver = ({ firstName, lastName, vehicles }) => {
   );
 };
 
+/**
+ */
 Driver.propTypes = {
   firstName: PropTypes.string.isRequired,
   lastName: PropTypes.string.isRequired,
   vehicles: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string.isRequried,
-      value: PropTypes.string,
+      id: PropTypes.number.isRequired,
+      capacity: PropTypes.number,
+      latitude: PropTypes.number,
+      longitude: PropTypes.number,
+      name: PropTypes.name,
+      passenger: PropTypes.number,
     })
   ),
 };
