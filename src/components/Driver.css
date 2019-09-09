@@ -8,10 +8,23 @@
   justify-content: center;
 }
 
+h1 {
+  margin: 0;
+  padding: 0;
+}
+
 h4 {
   padding: 5px;
-  margin: 0;
-  background: grey;
+  margin: 5px;
   text-transform: uppercase;
   border-bottom: 1px solid grey;
+}
+
+.details {
+  background-color: #e8e8e8;
+  border: 1px solid #909090;
+}
+
+.capacity {
+  padding: 5px;
 }
