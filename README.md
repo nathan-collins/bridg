@@ -8,7 +8,7 @@ open a terminal window and type the following commands
 
 ### `cd ~`
 
-### `git clone git@github.com:nathan-collins/lotto-selection.git`
+### `git clone git@github.com:nathan-collins/bridg.git`
 
 ### `cd lotto-selection`
 
