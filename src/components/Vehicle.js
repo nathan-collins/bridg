@@ -10,7 +10,11 @@ const Vehicle = compose(
     googleMapURL:
       'https://maps.googleapis.com/maps/api/js?key=AIzaSyAeDg8_7c_sBeWmR5lEblIAhW7oT_oDxxk&v=3.exp&libraries=geometry,drawing,places',
     loadingElement: <div style={{ height: `100%` }} />,
-    containerElement: <div style={{ height: `400px` }} />,
+    containerElement: (
+      <div
+        style={{ height: `300px`, maxWidth: `300px`, display: `flex`, flexDirection: `column` }}
+      />
+    ),
     mapElement: <div style={{ height: `100%` }} />,
   }),
   withState('zoom', 'onZoomChange', 2),
@@ -32,14 +36,12 @@ const Vehicle = compose(
   withGoogleMap
 )(({ capacity, latitude, longitude, name }) => {
   return (
-    <div className="driver">
+    <div>
       <h1>{name}</h1>
-      <div id="map">
-        <GoogleMap defaultZoom={15} defaultCenter={{ lat: latitude, lng: longitude }}>
-          <Marker position={{ lat: latitude, lng: longitude }} />
-        </GoogleMap>
-      </div>
-      <div>{capacity}</div>
+      <GoogleMap defaultZoom={15} defaultCenter={{ lat: latitude, lng: longitude }}>
+        <Marker position={{ lat: latitude, lng: longitude }} />
+      </GoogleMap>
+      <div>Capacity: {capacity}</div>
     </div>
   );
 });

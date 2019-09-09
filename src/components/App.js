@@ -48,7 +48,7 @@ function App() {
       return drivers;
     });
 
-    return driversAltered.map((driver, index) => (
+    return driversAltered.map((driver) => (
       <Driver
         key={driver.id}
         firstName={driver.first_name}
