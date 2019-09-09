@@ -38,13 +38,13 @@ const Vehicle = ({ capacity, latitude, longitude, name, passengers }) => {
   }
 
   return (
-    <div>
+    <div className="details">
       <h4>Vehicle Details</h4>
       <h1>{name}</h1>
-      {isLoaded ? renderMap() : ''}
       <div className="capacity">
         Capacity: {passengers}/{capacity}
       </div>
+      {isLoaded ? renderMap() : ''}
     </div>
   );
 };
