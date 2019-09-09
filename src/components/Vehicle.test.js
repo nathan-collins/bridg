@@ -23,8 +23,15 @@ describe('<Vehicle />', () => {
     const wrapper = shallow(
       <Vehicle capacity={12} latitude={96.1} longitude={127.0} name="Car name" passengers={12} />
     );
-    console.log(wrapper.debug());
 
     expect(wrapper.find('h1').text()).toBe('Car name');
+  });
+
+  it('is capacity loaded', () => {
+    const wrapper = shallow(
+      <Vehicle capacity={12} latitude={96.1} longitude={127.0} name="Car name" passengers={12} />
+    );
+
+    expect(wrapper.find('.capacity').text()).toBe('Capacity: 12/12');
   });
 });

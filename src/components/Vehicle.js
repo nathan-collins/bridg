@@ -42,7 +42,7 @@ const Vehicle = ({ capacity, latitude, longitude, name, passengers }) => {
       <h4>Vehicle Details</h4>
       <h1>{name}</h1>
       {isLoaded ? renderMap() : ''}
-      <div>
+      <div className="capacity">
         Capacity: {passengers}/{capacity}
       </div>
     </div>
