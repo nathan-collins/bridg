@@ -11,16 +11,17 @@ const Driver = ({ firstName, lastName, vehicles }) => {
   /**
    */
   const listVehicles = () => {
-    if (!vehicles) return <NoVehicle />;
+    if (!vehicles || vehicles.length === 0) return <NoVehicle />;
     return vehicles.map((vehicle) => {
       return (
-        <div>
+        <div id="vehicles">
           <Vehicle
             key={vehicle.id}
             capacity={vehicle.capacity}
             latitude={vehicle.latitude}
             longitude={vehicle.longitude}
             name={vehicle.name}
+            passengers={vehicle.passengers}
           />
         </div>
       );
